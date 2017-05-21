@@ -8,7 +8,7 @@ export class HttpQuestionSender implements Sender<string> {
   ) {}
 
   public send(question: string): Promise<string> {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       const request: ClientRequest = http.request({
         hostname: this._hostname,
         method: 'GET',
@@ -22,6 +22,7 @@ export class HttpQuestionSender implements Sender<string> {
           resolve(answer);
         });
       });
+      request.on('error', reject);
       request.end();
     });
   }

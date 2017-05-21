@@ -16,6 +16,10 @@ export class Player implements IPlayer {
     this._score += points;
   }
 
+  get nickname(): string {
+    return this._nickname;
+  }
+
   get score(): number {
     return this._score;
   }

@@ -1,7 +1,7 @@
 import {IPlayer} from './interfaces/player.interface';
 import {Session} from './interfaces/session.interface';
 
-export class GameSession implements Session {
+export abstract class AbstractGameSession implements Session {
   constructor(
     private _players: Array<IPlayer> = []
   ) {}
@@ -10,9 +10,7 @@ export class GameSession implements Session {
     this._players.push(player);
   }
 
-  public start(): void {
-
-  }
+  public abstract start(): void;
 
   get players(): Array<IPlayer> {
     return this._players;

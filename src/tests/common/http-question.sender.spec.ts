@@ -21,19 +21,18 @@ describe('HttpQuestionSender', () => {
     });
 
     it('should send the question and return the answer Promise', done => {
-      const expectedAnswer: string = 'answer';
+      const expected: string = 'answer';
       const response = new PassThrough();
-      response.write(expectedAnswer);
+      response.write(expected);
       response.end();
 
       const request = new PassThrough();
-
       requestStub.callsArgWith(1, response)
         .returns(request);
 
       sender.send('question')
         .then(answer => {
-          expect(answer).to.be.equal(expectedAnswer);
+          expect(answer).to.be.equal(expected);
           done();
         })
         .catch(error => {
@@ -41,5 +40,20 @@ describe('HttpQuestionSender', () => {
         });
     });
 
+    it('should send the question and return a promise rejection', done => {
+      const request = new PassThrough();
+      requestStub.returns(request);
+
+      sender.send('question')
+        .then(() => {
+          throw new Error('should not be here');
+        })
+        .catch(error => {
+          expect(error.message).to.not.be.equal('should not be here');
+          done();
+        });
+      
+      request.emit('error', 'some error');
+    });
   });
 });
