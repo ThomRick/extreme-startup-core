@@ -1,5 +1,5 @@
 {
-  "name": "project-startup-core",
+  "name": "extreme-startup-core",
   "version": "0.0.0",
   "description": "The core design of the extreme-startup game",
   "main": "dist/main.js",

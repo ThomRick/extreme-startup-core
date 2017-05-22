@@ -52,7 +52,7 @@ describe('HttpQuestionSender', () => {
           expect(error.message).to.not.be.equal('should not be here');
           done();
         });
-      
+
       request.emit('error', 'some error');
     });
   });
