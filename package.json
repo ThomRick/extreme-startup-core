@@ -2,12 +2,13 @@
   "name": "extreme-startup-core",
   "version": "0.0.0",
   "description": "The core design of the extreme-startup game",
-  "main": "dist/main.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --compilers ts-node/register src/**/*.spec.ts",
     "build": "npm run -s clean && tsc",
-    "start": "node dist/main.js",
-    "clean": "rm -rf dist/*"
+    "start": "node lib/main.js",
+    "clean": "rm -rf lib/*",
+    "postinstall": "npm run -s build && rm -rf src"
   },
   "author": "ThomRick",
   "repository": {
