@@ -13,10 +13,10 @@
   "author": "ThomRick",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThomRick/project-startup-core.git"
+    "url": "git+https://github.com/ThomRick/extreme-startup-core.git"
   },
   "bugs": {
-    "url": "https://github.com/ThomRick/project-startup-core/issues"
+    "url": "https://github.com/ThomRick/extreme-startup-core/issues"
   },
   "license": "MIT",
   "dependencies": {},
