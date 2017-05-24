@@ -1,7 +1,7 @@
 import {HttpQuestionSender} from '../../common/http-question.sender';
 import {SinonStub} from 'sinon';
 import * as http from 'http';
-import * as sinon from 'Sinon';
+import * as sinon from 'sinon';
 import {PassThrough} from 'stream';
 import {expect} from 'chai';
 import {Sender} from '../../common/interfaces/sender.interface';
