@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ThomRick/extreme-startup-core.svg?branch=master)](https://travis-ci.org/ThomRick/extreme-startup-core)
 # extreme-startup-core
 The core design of the extreme-startup game
 
