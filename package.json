@@ -7,8 +7,7 @@
     "test": "mocha --compilers ts-node/register src/**/*.spec.ts",
     "build": "npm run -s clean && tsc",
     "start": "node lib/main.js",
-    "clean": "rm -rf lib/*",
-    "postinstall": "npm run -s build && rm -rf src"
+    "clean": "rm -rf lib/*"
   },
   "author": "ThomRick",
   "repository": {
