@@ -1,5 +1,7 @@
 import {Session} from './session';
 import {Player} from '../players/player';
+import {GamePlayer} from '../players/game-player';
+import {isNullOrUndefined} from 'util';
 
 export class GameSession implements Session {
   private _isStarted: boolean;
@@ -10,11 +12,14 @@ export class GameSession implements Session {
     this._isStarted = false;
   }
 
-  public addPlayer(player: Player): void {
+  public addPlayer(newPlayer: Player): void {
     if (this._isStarted) {
       throw new Error();
     }
-    this._players.push(player);
+    if (!isNullOrUndefined(this._players.find(player => (player as GamePlayer).nickname === (newPlayer as GamePlayer).nickname))) {
+      throw new Error();
+    }
+    this._players.push(newPlayer);
   }
 
   public start(): void {

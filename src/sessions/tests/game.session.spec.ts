@@ -18,6 +18,14 @@ describe('GameSession', () => {
       session.addPlayer(player);
       expect((session as GameSession).players).to.have.length(1);
     });
+
+    it('should throw an Error if 2 players with the same nickname are added', () => {
+      const player: Player = new GamePlayer('player1', new HttpQuestionSender('hostname'));
+      session.addPlayer(player);
+      expect(() => {
+        session.addPlayer(player);
+      }).to.throw(Error);
+    });
   });
 
   describe('#start()', () => {
