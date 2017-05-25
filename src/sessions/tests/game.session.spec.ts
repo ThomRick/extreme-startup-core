@@ -21,8 +21,36 @@ describe('GameSession', () => {
   });
 
   describe('#start()', () => {
-    it('can call start()', () => {
+    it('should throw an Error if start() is called 2 times', () => {
       session.start();
+      expect(() => {
+        session.start();
+      }).to.throw(Error);
+    });
+
+    it('should throw an Error if addPlayer() is called after session start()', () => {
+      session.start();
+      expect(() => {
+        session.addPlayer(new GamePlayer('player1', new HttpQuestionSender('hostname')));
+      }).to.throw(Error);
+    });
+  });
+
+  describe('#stop()', () => {
+    it('should throw an Error if called before session start()', () => {
+      expect(() => {
+        session.stop();
+      }).to.throw(Error);
+    });
+
+    it('can call addPlayer() after session stop()', () => {
+      const player1: Player = new GamePlayer('player1', new HttpQuestionSender('hostname'));
+      const player2: Player = new GamePlayer('player2', new HttpQuestionSender('hostname'));
+      session.addPlayer(player1);
+      session.start();
+      session.stop();
+      session.addPlayer(player2);
+      expect((session as GameSession).players).to.have.length(2);
     });
   });
 });
