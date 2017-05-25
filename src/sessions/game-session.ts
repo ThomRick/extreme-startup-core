@@ -1,7 +1,7 @@
-import {Player} from '../players/player';
 import {Session} from './session';
+import {Player} from '../players/player';
 
-export abstract class AbstractGameSession implements Session {
+export class GameSession implements Session {
   constructor(
     private _players: Array<Player> = []
   ) {}
@@ -10,7 +10,9 @@ export abstract class AbstractGameSession implements Session {
     this._players.push(player);
   }
 
-  public abstract start(): void;
+  public start(): void {
+
+  }
 
   get players(): Array<Player> {
     return this._players;

@@ -1,16 +1,12 @@
-import {AbstractGameSession} from '../abstract-game.session';
 import {GamePlayer} from '../../players/game-player';
 import {Player} from '../../players/player';
 import {Session} from '../session';
 import {expect} from 'chai';
 import {HttpQuestionSender} from '../../senders/http-question.sender';
+import {GameSession} from '../game-session';
 
-describe('AbstractGameSession', () => {
+describe('GameSession', () => {
   let session: Session;
-
-  class GameSession extends AbstractGameSession {
-    public start(): void {}
-  }
 
   beforeEach(() => {
     session = new GameSession();
@@ -20,7 +16,7 @@ describe('AbstractGameSession', () => {
     it('should add the players to the game sessions players list', () => {
       const player: Player = new GamePlayer('player1', new HttpQuestionSender('hostname'));
       session.addPlayer(player);
-      expect((session as AbstractGameSession).players).to.have.length(1);
+      expect((session as GameSession).players).to.have.length(1);
     });
   });
 
