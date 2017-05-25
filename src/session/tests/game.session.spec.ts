@@ -1,9 +1,9 @@
-import {AbstractGameSession} from '../../common/abstract-game.session';
-import {Player} from '../../common/player';
-import {IPlayer} from '../../common/interfaces/player.interface';
-import {Session} from '../../common/interfaces/session.interface';
+import {AbstractGameSession} from '../abstract-game.session';
+import {GamePlayer} from '../../player/game-player';
+import {Player} from '../../player/player';
+import {Session} from '../session';
 import {expect} from 'chai';
-import {HttpQuestionSender} from '../../common/http-question.sender';
+import {HttpQuestionSender} from '../../sender/http-question.sender';
 
 describe('AbstractGameSession', () => {
   let session: Session;
@@ -18,7 +18,7 @@ describe('AbstractGameSession', () => {
 
   describe('#addPlayer()', () => {
     it('should add the player to the game session player list', () => {
-      const player: IPlayer = new Player('player1', new HttpQuestionSender('hostname'));
+      const player: Player = new GamePlayer('player1', new HttpQuestionSender('hostname'));
       session.addPlayer(player);
       expect((session as AbstractGameSession).players).to.have.length(1);
     });

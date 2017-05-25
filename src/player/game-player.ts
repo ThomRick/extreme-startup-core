@@ -1,7 +1,7 @@
-import {IPlayer} from './interfaces/player.interface';
-import {Sender} from './interfaces/sender.interface';
+import {Player} from './player';
+import {Sender} from '../sender/sender';
 
-export class Player implements IPlayer {
+export class GamePlayer implements Player {
   constructor(
     private _nickname: string,
     private _sender: Sender<string>,

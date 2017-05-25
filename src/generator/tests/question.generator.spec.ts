@@ -1,4 +1,4 @@
-import {QuestionGenerator} from '../../common/question.generator';
+import {QuestionGenerator} from '../question.generator';
 
 describe('QuestionGenerator', () => {
   it('can call generate()', () => {

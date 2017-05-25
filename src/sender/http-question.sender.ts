@@ -1,6 +1,6 @@
 import * as http from 'http';
 import {ClientRequest} from 'http';
-import {Sender} from './interfaces/sender.interface';
+import {Sender} from './sender';
 
 export class HttpQuestionSender implements Sender<string> {
   constructor(

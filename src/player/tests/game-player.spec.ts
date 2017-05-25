@@ -1,13 +1,13 @@
-import {Player} from '../../common/player';
-import {IPlayer} from '../../common/interfaces/player.interface';
+import {GamePlayer} from '../game-player';
+import {Player} from '../player';
 import * as sinon from 'sinon';
 import {SinonSandbox, SinonStub} from 'sinon';
 import {expect} from 'chai';
-import {HttpQuestionSender} from '../../common/http-question.sender';
-import {Sender} from '../../common/interfaces/sender.interface';
+import {HttpQuestionSender} from '../../sender/http-question.sender';
+import {Sender} from '../../sender/sender';
 
-describe('Player', () => {
-  let player: IPlayer;
+describe('GamePlayer', () => {
+  let player: Player;
   let sendStub: SinonStub;
   let sandox: SinonSandbox;
 
@@ -17,7 +17,7 @@ describe('Player', () => {
     const questionSender: Sender<string> = new HttpQuestionSender('hostname');
     sendStub = sandox.stub(questionSender, 'send');
 
-    player = new Player('nickname', questionSender);
+    player = new GamePlayer('nickname', questionSender);
   });
 
   afterEach(() => {
@@ -36,15 +36,15 @@ describe('Player', () => {
     });
   });
 
-  describe('updateScoreWith()', () => {
+  describe('#updateScoreWith()', () => {
     it('should update the score with the 10 positive points', () => {
       player.updateScoreWith(10);
-      expect((player as Player).score).to.be.equal(10);
+      expect((player as GamePlayer).score).to.be.equal(10);
     });
 
     it('should update the score with the 10 negative points', () => {
       player.updateScoreWith(-10);
-      expect((player as Player).score).to.be.equal(-10);
+      expect((player as GamePlayer).score).to.be.equal(-10);
     });
   });
 });
