@@ -20,7 +20,7 @@ describe('HttpQuestionSender', () => {
       requestStub.restore();
     });
 
-    it('should send the question and return the answer Promise', done => {
+    it('should send the questions and return the answer Promise', done => {
       const expected: string = 'answer';
       const response = new PassThrough();
       response.write(expected);
@@ -40,7 +40,7 @@ describe('HttpQuestionSender', () => {
         });
     });
 
-    it('should send the question and return a promise rejection', done => {
+    it('should send the questions and return a promise rejection', done => {
       const request = new PassThrough();
       requestStub.returns(request);
 

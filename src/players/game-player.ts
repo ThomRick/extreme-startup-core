@@ -1,5 +1,5 @@
 import {Player} from './player';
-import {Sender} from '../sender/sender';
+import {Sender} from '../senders/sender';
 
 export class GamePlayer implements Player {
   constructor(

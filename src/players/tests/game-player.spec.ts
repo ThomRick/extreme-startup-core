@@ -3,8 +3,8 @@ import {Player} from '../player';
 import * as sinon from 'sinon';
 import {SinonSandbox, SinonStub} from 'sinon';
 import {expect} from 'chai';
-import {HttpQuestionSender} from '../../sender/http-question.sender';
-import {Sender} from '../../sender/sender';
+import {HttpQuestionSender} from '../../senders/http-question.sender';
+import {Sender} from '../../senders/sender';
 
 describe('GamePlayer', () => {
   let player: Player;
@@ -25,7 +25,7 @@ describe('GamePlayer', () => {
   });
 
   describe('#answer()', () => {
-    it('should call question sender to send the question', done => {
+    it('should call questions senders to send the questions', done => {
       sendStub.returns(Promise.resolve('answer'));
       player.answer('question')
         .then(() => {

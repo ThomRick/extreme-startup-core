@@ -1,4 +1,4 @@
-import {Player} from '../player/player';
+import {Player} from '../players/player';
 
 export interface Session {
   addPlayer(player: Player): void

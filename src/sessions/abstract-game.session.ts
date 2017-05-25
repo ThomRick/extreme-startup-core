@@ -1,4 +1,4 @@
-import {Player} from '../player/player';
+import {Player} from '../players/player';
 import {Session} from './session';
 
 export abstract class AbstractGameSession implements Session {
